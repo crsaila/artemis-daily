@@ -48,7 +48,6 @@ SSH into the Pi and enable the systemd service:
 
 ```bash
 ssh pi@your-pi-hostname.your-tailscale-domain.ts.net
-sudo cp /var/www/artemis-photo/artemis-photo.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable artemis-photo
 sudo systemctl start artemis-photo
@@ -65,7 +64,7 @@ sudo sh -c 'echo "10.0.x.x    artemis.your-pi-hostname.local" >> /etc/hosts'
 The app will then be available at:
 
 - `http://artemis.your-pi-hostname.local`
-- `http://your-pi-hostname.your-tailscale-domain.ts.net/artemis`
+- `http://artemis.your-pi-hostname.your-tailscale-domain.ts.net`
 
 ## Mac wallpaper setup
 

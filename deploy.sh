@@ -14,7 +14,6 @@ ssh "$PI_SSH" "sudo mkdir -p $DEPLOY_DIR && sudo chown ${PI_USER}:${PI_USER} $DE
 scp "$LOCAL_DIR/server.js" \
     "$LOCAL_DIR/artemis-photo.html" \
     "$LOCAL_DIR/package.json" \
-    "$LOCAL_DIR/patch-landing-nginx.py" \
     "$PI_SSH:$DEPLOY_DIR/"
 
 echo "Installing dependencies..."
@@ -40,7 +39,6 @@ server {
 EOF
 sudo cp /tmp/nginx-artemis-photo /etc/nginx/sites-enabled/artemis-photo"
 
-ssh "$PI_SSH" "sudo python3 $DEPLOY_DIR/patch-landing-nginx.py ${PORT}"
 ssh "$PI_SSH" "sudo nginx -t && sudo systemctl reload nginx"
 
 echo "Generating systemd service..."
@@ -73,4 +71,4 @@ echo "  sudo systemctl start artemis-photo"
 echo ""
 echo "Access at:"
 echo "  http://artemis.${PI_HOSTNAME}.local"
-echo "  http://${PI_HOSTNAME}.${TAILSCALE_DOMAIN}/artemis"
+echo "  http://artemis.${PI_HOSTNAME}.${TAILSCALE_DOMAIN}"
