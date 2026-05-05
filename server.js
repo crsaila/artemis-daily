@@ -4,7 +4,7 @@ const fs = require('fs');
 const https = require('https');
 
 const app = express();
-const PORT = 8513;
+const PORT = parseInt(process.env.PORT) || 8513;
 const CACHE_DIR = path.join(__dirname, 'cache');
 
 if (!fs.existsSync(CACHE_DIR)) fs.mkdirSync(CACHE_DIR);

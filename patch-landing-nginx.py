@@ -3,10 +3,11 @@ import sys
 import shutil
 
 LANDING = '/etc/nginx/sites-enabled/landing'
-BLOCK = """
-    location /artemis {
+PORT = sys.argv[1] if len(sys.argv) > 1 else '8513'
+BLOCK = f"""
+    location /artemis {{
         rewrite ^/artemis/(.*) /$1 break;
-        proxy_pass http://localhost:8513;
+        proxy_pass http://localhost:{PORT};
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -14,7 +15,7 @@ BLOCK = """
         proxy_cache_bypass $http_upgrade;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
+    }}
 """
 
 with open(LANDING) as f:

@@ -1,3 +1,5 @@
+# Reference only — deploy.sh generates and installs the real service file.
+
 [Unit]
 Description=Artemis Photo
 After=network.target
@@ -6,6 +8,7 @@ After=network.target
 Type=simple
 User=pi
 WorkingDirectory=/var/www/artemis-photo
+Environment=PORT=8513
 ExecStart=/usr/bin/node server.js
 Restart=on-failure
 StandardOutput=append:/var/www/artemis-photo/server.log
