@@ -29,7 +29,7 @@ cp config.example.sh config.sh
 ```bash
 PI_USER="pi"
 PI_HOSTNAME="your-pi-hostname"
-PI_LOCAL_IP="192.168.x.x"
+PI_LOCAL_IP="10.0.x.x"
 TAILSCALE_DOMAIN="xxxx.ts.net"
 DEPLOY_DIR="/var/www/artemis-photo"
 ```
@@ -59,7 +59,7 @@ sudo systemctl start artemis-photo
 On each Mac that will use the local address, add an entry to `/etc/hosts`:
 
 ```bash
-sudo sh -c 'echo "192.168.x.x    artemis.your-pi-hostname.local" >> /etc/hosts'
+sudo sh -c 'echo "10.0.x.x    artemis.your-pi-hostname.local" >> /etc/hosts'
 ```
 
 The app will then be available at:
