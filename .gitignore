@@ -1,0 +1,6 @@
+config.sh
+nginx-artemis-photo
+cache/
+wallpaper-helper
+node_modules/
+*.log

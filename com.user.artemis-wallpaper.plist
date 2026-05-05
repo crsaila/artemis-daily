@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Reference only — install-mac.sh generates the installed version with correct paths -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.user.artemis-wallpaper</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>SCRIPTS_DIR/set-wallpaper.sh</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StartInterval</key>
+  <integer>3600</integer>
+  <key>StandardOutPath</key>
+  <string>/tmp/artemis-wallpaper.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/artemis-wallpaper.log</string>
+</dict>
+</plist>

@@ -1,0 +1,15 @@
+[Unit]
+Description=Artemis Photo
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/var/www/artemis-photo
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+StandardOutput=append:/var/www/artemis-photo/server.log
+StandardError=append:/var/www/artemis-photo/server-error.log
+
+[Install]
+WantedBy=multi-user.target
