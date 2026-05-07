@@ -147,8 +147,8 @@
 <body>
 
   <header>
-    <span class="label">Artemis II</span>
-    <span class="label" id="date-label"></span>
+    <h1 class="label">Artemis II</h1>
+    <p class="label"><time id="date-label" datetime=""></time></p>
   </header>
 
   <main>
@@ -201,7 +201,9 @@
 
     const today = new Date();
     document.getElementById('date-label').textContent =
-      today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase();
+      today.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase();
+    document.getElementById('date-label').dateTime =
+      today.toLocaleDateString("en-CA")
 
     fetch('/today')
       .then(r => r.json())
